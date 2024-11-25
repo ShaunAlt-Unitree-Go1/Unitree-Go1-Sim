@@ -1,0 +1,21 @@
+[submodule "submodules/Taucrates/simulation_unitree_go1"]
+	path = submodules/Taucrates/simulation_unitree_go1
+	url = https://github.com/Taucrates/simulation_unitree_go1
+[submodule "submodules/chvmp/champ"]
+	path = submodules/chvmp/champ
+	url = https://github.com/chvmp/champ
+[submodule "submodules/chvmp/yocs_velocity_smoother"]
+	path = submodules/chvmp/yocs_velocity_smoother
+	url = https://github.com/chvmp/yocs_velocity_smoother
+[submodule "submodules/Taucrates/realsense_gazebo_plugin"]
+	path = submodules/Taucrates/realsense_gazebo_plugin
+	url = https://github.com/Taucrates/realsense_gazebo_plugin
+[submodule "submodules/issaiass/realsense2_description"]
+	path = submodules/issaiass/realsense2_description
+	url = https://github.com/issaiass/realsense2_description
+[submodule "submodules/CCNYRoboticsLab/scan_tools"]
+	path = submodules/CCNYRoboticsLab/scan_tools
+	url = https://github.com/CCNYRoboticsLab/scan_tools
+[submodule "submodules/Taucrates/go1_slam_gmapping"]
+	path = submodules/Taucrates/go1_slam_gmapping
+	url = https://github.com/Taucrates/go1_slam_gmapping
