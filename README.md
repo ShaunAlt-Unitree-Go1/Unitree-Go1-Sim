@@ -2,6 +2,9 @@
 Unitree Go1 Robot Full Simulation with LiDAR and Camera Support
 
 ## Table of Contents
+- [Contributors](#contributors)
+- [Supports](#supports)
+- [Usage](#usage)
 
 ## Contributors
 Created by: Shaun Altmann (saltmann@deakin.edu.au).
@@ -31,3 +34,18 @@ See https://github.com/Taucrates/simulation_unitree_go1.
     ``` bash
     $ catkin_make
     ```
+5. Source the workspace.
+    ``` bash
+    $ source devel/setup.sh
+    ```
+6. Launch the simulation + SLAM/Nav Stack.
+    - Terminal 1 (Simulation):
+        ``` bash
+        $ source ~/noetic_sim_ws/devel/setup.sh
+        $ roslaunch go1_simulation go1_simulation.launch
+        ```
+    - Terminal 2 (SLAM / Nav Stack):
+        ``` bash
+        $ source ~/noetic_sim_ws/devel/setup.sh
+        $ roslaunch go1_simulation slam.launch rviz:=true
+        ```
