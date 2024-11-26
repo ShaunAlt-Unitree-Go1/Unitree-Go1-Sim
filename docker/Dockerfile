@@ -63,11 +63,11 @@ RUN git clone \
     --recurse-submodules \
     https://github.com/ShaunAlt-Unitree-Go1/Unitree-Go1-Sim.git
 WORKDIR /home/rosuser/sim_ws
-RUN rosdep install \
-    --from-paths src \
-    --ignore-src \
-    --rosdistro noetic \
-    -y
+# RUN rosdep install \
+#     --from-paths src \
+#     --ignore-src \
+#     --rosdistro noetic \
+#     -y
 RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
 
 
