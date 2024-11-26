@@ -16,7 +16,10 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 # =============================================================================
 # Build the Docker Image
 # =============================================================================
-docker build -t go1-sim-noetic $SCRIPT_DIR/.
+docker build \
+    --progress=plain \
+    -t go1-sim-noetic \
+    $SCRIPT_DIR/.
 
 
 # =============================================================================
