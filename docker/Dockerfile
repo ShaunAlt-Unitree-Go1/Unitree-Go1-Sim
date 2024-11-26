@@ -20,6 +20,12 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 
 # =============================================================================
+# Force Software Rendering
+# =============================================================================
+# ENV LIBGL_ALWAYS_SOFTWARE=1
+
+
+# =============================================================================
 # Update Debian Packages
 # =============================================================================
 RUN apt-get update -y
@@ -30,6 +36,7 @@ RUN apt-get upgrade -y
 # Install Debian Packages
 # =============================================================================
 RUN apt-get install -y \
+    ros-noetic-desktop-full \
     git \
     python3-catkin-tools \
     mesa-utils \
