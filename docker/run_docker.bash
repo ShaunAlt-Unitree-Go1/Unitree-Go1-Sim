@@ -14,6 +14,7 @@ docker run \
     -it \
     --net=host \
     --ipc=host \
+    --device=/dev/dri:/dev/dri \
     -e DISPLAY=$DISPLAY \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     go1-sim-noetic
