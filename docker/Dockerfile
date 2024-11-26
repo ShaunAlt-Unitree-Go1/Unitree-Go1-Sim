@@ -38,7 +38,6 @@ RUN useradd \
     -G sudo \
     -u 1000 rosuser \
     -p rosuser
-USER rosuser
 WORKDIR /home/rosuser
 
 
@@ -63,6 +62,12 @@ RUN rosdep install \
     --rosdistro noetic \
     -y
 RUN catkin_make
+
+
+# =============================================================================
+# Set Default User
+# =============================================================================
+USER rosuser
 
 
 # =============================================================================
