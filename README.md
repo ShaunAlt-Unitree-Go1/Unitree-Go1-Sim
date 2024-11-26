@@ -13,6 +13,9 @@ Created by: Shaun Altmann (saltmann@deakin.edu.au).
 ROS Noetic on Ubuntu 20.04.
 
 ## Usage
+> [!NOTE]
+> `/move_base_simple/goal` is used by RVIZ when using the "2D Nav Goal" feature to make the robot go to a particular location.
+
 See https://github.com/Taucrates/simulation_unitree_go1.
 1. Create a new workspace and source ROS Noetic.
     ``` bash
