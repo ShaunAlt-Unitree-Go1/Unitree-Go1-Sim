@@ -37,6 +37,7 @@ RUN apt-get upgrade -y
 # =============================================================================
 RUN apt-get install -y \
     ros-noetic-desktop-full \
+    ros-noetic-gazebo-plugins \
     git \
     python3-catkin-tools \
     mesa-utils \
