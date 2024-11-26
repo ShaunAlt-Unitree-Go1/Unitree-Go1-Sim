@@ -29,8 +29,12 @@ RUN apt-get upgrade -y
 # =============================================================================
 # Install Debian Packages
 # =============================================================================
-RUN apt-get install git -y
-RUN apt-get install python3-catkin-tools -y
+RUN apt-get install -y \
+    git \
+    python3-catkin-tools \
+    mesa-utils \
+    libgl1-mesa-glx \
+    libgl1-mesa-dri
 
 
 # =============================================================================
