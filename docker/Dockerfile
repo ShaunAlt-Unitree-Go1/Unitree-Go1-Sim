@@ -30,6 +30,7 @@ RUN apt-get upgrade -y
 # Install Debian Packages
 # =============================================================================
 RUN apt-get install git -y
+RUN apt-get install python3-catkin-tools -y
 
 
 # =============================================================================
