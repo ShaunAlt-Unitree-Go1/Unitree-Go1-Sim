@@ -69,7 +69,6 @@ RUN rosdep update --rosdistro noetic
 # =============================================================================
 # Clone + Build Simulation from GitHub Repo
 # =============================================================================
-RUN mkdir -p ~/sim_ws/src
 WORKDIR /home/rosuser/sim_ws/src
 RUN git clone \
     --recurse-submodules \
@@ -86,7 +85,7 @@ RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
 # =============================================================================
 # Set Default User
 # =============================================================================
-USER rosuser
+# USER rosuser
 
 
 # =============================================================================
