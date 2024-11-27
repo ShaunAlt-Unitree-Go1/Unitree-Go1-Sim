@@ -57,6 +57,7 @@ RUN useradd \
     -G sudo \
     -u 1000 rosuser \
     -p $(openssl passwd -6 rosuser)
+RUN echo "rosuser ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/rosuser && chmod 440 /etc/sudoers.d/rosuser
 WORKDIR /home/rosuser
 USER rosuser
 
