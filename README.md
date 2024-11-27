@@ -31,6 +31,15 @@ ROS Noetic on Ubuntu 20.04.
     ``` bash
     $ docker exec -it go1_sim_noetic bash
     ```
+5. To get the simulation working inside the docker, run the Docker and use the following commands:
+    ``` bash
+    $ cd /home/rosuser/sim_ws # you should already be here
+    $ source devel/setup.bash
+    $ roslaunch go1_simulation go1_simulation.launch
+6. If the above `roslaunch` command fails, try just opening the world using gazebo first, then reattempting the `go1_simulation` launch.
+    ``` bash
+    roslaunch gazebo_ros willowgarage_world.launch --screen
+    ```
 ### Using in a VM
 > [!NOTE]
 > `/move_base_simple/goal` is used by RVIZ when using the "2D Nav Goal" feature to make the robot go to a particular location.
