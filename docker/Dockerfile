@@ -56,7 +56,7 @@ RUN useradd \
     -g root \
     -G sudo \
     -u 1000 rosuser \
-    -p rosuser
+    -p $(openssl passwd -6 rosuser)
 WORKDIR /home/rosuser
 
 
@@ -85,7 +85,7 @@ RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
 # =============================================================================
 # Set Default User
 # =============================================================================
-# USER rosuser
+USER rosuser
 
 
 # =============================================================================
