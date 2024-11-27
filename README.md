@@ -13,6 +13,25 @@ Created by: Shaun Altmann (saltmann@deakin.edu.au).
 ROS Noetic on Ubuntu 20.04.
 
 ## Usage
+### Docker Usage
+1. Clone this repository.
+    ``` bash
+    $ cd ~
+    $ git clone --recurse-submodules https://github.com/ShaunAlt-Unitree-Go1/Unitree-Go1-Sim.git
+    ```
+2. Create the Docker Image.
+    ``` bash
+    $ ./docker/build_docker.sh
+    ```
+3. Run the Docker Image.
+    ``` bash
+    $ ./docker/run_docker.sh
+    ```
+4. If you want to open another terminal inside the docker, open a new terminal and run the following command:
+    ``` bash
+    $ docker exec -it go1_sim_noetic bash
+    ```
+### Using in a VM
 > [!NOTE]
 > `/move_base_simple/goal` is used by RVIZ when using the "2D Nav Goal" feature to make the robot go to a particular location.
 
@@ -25,7 +44,7 @@ See https://github.com/Taucrates/simulation_unitree_go1.
     ```
 2. Import this repo (and all dependencies).
     ``` bash
-    $ git clone --recurse-submodules https://github.com/ShaunAlt-Unitree-Go1/Unitree-Go1-Sim
+    $ git clone --recurse-submodules https://github.com/ShaunAlt-Unitree-Go1/Unitree-Go1-Sim.git
     ```
 3. Go back to workspace, install all ROS dependencies.
     ``` bash
