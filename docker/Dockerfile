@@ -57,41 +57,41 @@ RUN useradd \
     -G sudo \
     -u 1000 rosuser \
     -p $(openssl passwd -6 rosuser)
-RUN echo "rosuser ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/rosuser && chmod 440 /etc/sudoers.d/rosuser
+# RUN echo "rosuser ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/rosuser && chmod 440 /etc/sudoers.d/rosuser
 WORKDIR /home/rosuser
-USER rosuser
+# USER rosuser
 
 
 # =============================================================================
 # Updating ROS Dependencies
 # =============================================================================
-RUN sudo rosdep update --rosdistro noetic
-# RUN rosdep update --rosdistro noetic
+# RUN sudo rosdep update --rosdistro noetic
+RUN rosdep update --rosdistro noetic
 
 
 # =============================================================================
 # Clone + Build Simulation from GitHub Repo
 # =============================================================================
 WORKDIR /home/rosuser/sim_ws/src
-# RUN git clone \
-RUN sudo git clone \
+RUN git clone \
+# RUN sudo git clone \
     --recurse-submodules \
     https://github.com/ShaunAlt-Unitree-Go1/Unitree-Go1-Sim.git
 WORKDIR /home/rosuser/sim_ws
-# RUN rosdep install \
-RUN sudo rosdep install \
+RUN rosdep install \
+# RUN sudo rosdep install \
     --from-paths src \
     --ignore-src \
     --rosdistro noetic \
     -y
-# RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
-RUN sudo bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
+RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
+# RUN sudo bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
 
 
 # =============================================================================
 # Set Default User
 # =============================================================================
-# USER rosuser
+USER rosuser
 
 
 # =============================================================================
