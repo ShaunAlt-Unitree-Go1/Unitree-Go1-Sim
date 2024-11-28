@@ -17,7 +17,7 @@ ROS Noetic on Ubuntu 20.04.
 1. Clone this repository.
     ``` bash
     $ cd ~
-    $ git clone --recurse-submodules https://github.com/ShaunAlt-Unitree-Go1/Unitree-Go1-Sim.git
+    $ git clone https://github.com/ShaunAlt-Unitree-Go1/Unitree-Go1-Sim.git
     ```
 2. Create the Docker Image.
     ``` bash
@@ -38,7 +38,12 @@ ROS Noetic on Ubuntu 20.04.
     $ roslaunch go1_simulation go1_simulation.launch
 6. If the above `roslaunch` command fails, try just opening the world using gazebo first, then reattempting the `go1_simulation` launch.
     ``` bash
-    roslaunch gazebo_ros willowgarage_world.launch --screen
+    $ roslaunch gazebo_ros willowgarage_world.launch --screen
+    ```
+7. Once the simulation is working, you can open RVIZ in a new terminal (inside the docker) to use the SLAM and Navigation Stacks.
+    ``` bash
+    $ source /home/rosuser/sim_ws/devel/setup.bash
+    $ roslaunch go1_simulation slam.launch rviz:=true
     ```
 ### Using in a VM
 > [!NOTE]
