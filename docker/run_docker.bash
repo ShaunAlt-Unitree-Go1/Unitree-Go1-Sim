@@ -86,6 +86,7 @@ while getopts "hn:t" opt; do
             ;;
     esac
 done
+delete_old_container
 run_docker
 exit 0
 
