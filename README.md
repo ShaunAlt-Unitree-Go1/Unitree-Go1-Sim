@@ -26,10 +26,11 @@ ROS Noetic on Ubuntu 20.04.
 3. Run the Docker Image.
     ``` bash
     $ ./docker/run_docker.sh
+    # use the -h option to see helper info on this script
     ```
 4. If you want to open another terminal inside the docker, open a new terminal and run the following command:
     ``` bash
-    $ docker exec -it go1_sim_noetic bash
+    $ ./docker/run_docker.bash -t
     ```
 5. To get the simulation working inside the docker, run the Docker and use the following commands:
     ``` bash
