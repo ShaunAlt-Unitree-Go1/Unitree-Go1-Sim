@@ -99,14 +99,15 @@ ROS Noetic on Ubuntu 20.04.
         $ roslaunch gazebo_ros willowgarage_world.launch
         $ roslaunch go1_simulation go1_simulation.launch
         ```
-    2. Unitree Go2 Sim Docker (ROS Noetic).
+    2. Unitree Go1 Sim Docker (ROS Noetic).
         ``` bash
         $ source devel/setup.bash
         $ roslaunch go1_simulation slam.launch
         ```
     3. ROS Bridge Docker (ROS Galactic).
         ``` bash
-        $ source install/setup.bash
+        $ source /home/rosuser/bridge_ws/install/setup.bash
+        $ rosparam load /home/rosuser/bridge_ws/bridge.yaml
         $ ros2 run ros1_bridge dynamic_bridge
         ```
     4. Main Machine (ROS Humble).
@@ -117,17 +118,23 @@ ROS Noetic on Ubuntu 20.04.
     5. Main Machine (ROS Humble).
         ``` bash
         $ source /opt/ros/humble/setup.bash
-        $ ros2 run nav2_bringup navigation_launch.py use_sim_time:=true
+        $ ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
         ```
     6. Main Machine (ROS Humble).
         ``` bash
         $ source /opt/ros/humble/setup.bash
-        $ ros2 run slam_toolbox online_async_launch.py use_sim_time:=true
+        $ ros2 launch slam_toolbox online_async_launch.py use_sim_time:=true
         ```
     7. Main Machine (ROS Humble).
         ``` bash
         $ source /opt/ros/humble/setup.bash
         $ ros2 run rviz2 rviz2 -d /opt/ros/humble/share/nav2_bringup/rviz/nav2_default_view.rviz
+        ```
+    8. (OPTIONAL) View the Transforms (Main Machine with ROS Humble).
+        ``` bash
+        $ cd ~
+        $ source /opt/ros/humble/setup.bash
+        $ ros2 run tf2_tools view_frames
         ```
 
 ### Using in a VM

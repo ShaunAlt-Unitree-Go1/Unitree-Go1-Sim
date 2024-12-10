@@ -73,6 +73,12 @@ WORKDIR /home/rosuser/sim_ws/src
 RUN git clone \
     --recurse-submodules \
     https://github.com/ShaunAlt-Unitree-Go1/Unitree-Go1-Sim.git
+
+# customize the `slam.launch` file - this way the lidar mapper is created, but
+#  none of the other slam gmapping or move_group stuff is created
+RUN rm -rf /home/rosuser/sim_ws/src/Unitree-Go1-Sim/submodules/Taucrates/simulation_unitree_go1/go1_simulation/launch/slam.launch
+COPY custom/slam.launch /home/rosuser/sim_ws/src/Unitree-Go1-Sim/submodules/Taucrates/simulation_unitree_go1/go1_simulation/launch/
+
 WORKDIR /home/rosuser/sim_ws
 RUN rosdep install \
     --from-paths src \
