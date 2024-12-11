@@ -159,7 +159,7 @@ ROS Jazzy on Ubuntu 24.04.
         ``` bash
         # on main machine
         $ source /opt/ros/humble/setup.bash
-        $ ros2 run nav2_bringup navigation_launch.py use_sim_time:=true
+        $ ros2 launch nav2_bringup navigation_launch.py use_sim_time:=true
         ```
     6. Run the ROS2 SLAM Node.
         ``` bash
