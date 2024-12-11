@@ -4,6 +4,7 @@ Unitree Go1 Robot Full Simulation with LiDAR and Camera Support
 ## Table of Contents
 - [Contributors](#contributors)
 - [Supports](#supports)
+- [From Scratch](#from-scratch)
 - [Usage](#usage)
     - [Docker Usage](#docker-usage)
     - [Working with ROS2 Navigation (Single Robot without Namespace)](#working-with-ros2-navigation-single-robot-without-namespace)
@@ -14,7 +15,56 @@ Unitree Go1 Robot Full Simulation with LiDAR and Camera Support
 Created by: Shaun Altmann (saltmann@deakin.edu.au).
 
 ## Supports
-ROS Noetic on Ubuntu 20.04.
+ROS Humble on Ubuntu 22.04.
+ROS Jazzy on Ubuntu 24.04.
+
+## From Scratch
+1. Create VM. In this case, I have downloaded the Ubuntu 24.04.1 ARM Server Image, and created a VM in Parallels giving it 8CPUs and 24GB of RAM. Go through the normal setup process, skipping all additional installation steps. This should end with you selecting to 'Reboot Now' the VM.
+2. Install Ubuntu Desktop.
+    ``` bash
+    $ sudo apt update
+    $ sudo apt upgrade -y
+    $ sudo apt install ubuntu-desktop-minimal
+    $ sudo reboot
+    ```
+3. Install ROS Jazzy.
+    ``` bash
+    $ sudo apt install software-properties-common
+    $ sudo add-apt-repository universe
+    $ sudo apt update
+    $ sudo apt install curl -y
+    $ sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+    $ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] https://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+    $ sudo apt update
+    $ sudo apt install \
+        ros-dev-tools \ # ros development tools
+        ros-jazzy-desktop \ # ros
+        ros-jazzy-navigation2 ros-jazzy-nav2-bringup \ # nav
+        ros-jazzy-slam-toolbox \ # slam
+        ros-jazzy-ros-gz \ # gazebo
+        -y
+    $ sudo apt upgrade -y
+    ```
+4. Install Docker.
+    ``` bash
+    $ curl -fsSL https://get.docker.com/ | sh
+    $ docker --version # validate docker is installed
+    $ sudo groupadd docker
+    $ sudo gpasswd -a $USER docker
+    $ sudo systemctl restart docker
+    ```
+5. Update VM Hosts (used if connecting to Physical Robot).
+    ``` bash
+    $ sudo nano /etc/hosts
+    # add the following line to the file
+    192.168.123.161 raspberrypi
+    ```
+5. Update, Upgrade, and Restart VM.
+    ``` bash
+    $ sudo apt update
+    $ sudo apt upgrade -y
+    $ sudo reboot
+    ```
 
 ## Usage
 ### Docker Usage
@@ -39,28 +89,32 @@ ROS Noetic on Ubuntu 20.04.
     ```
 
 ### Working with ROS2 Navigation (Single Robot without Namespace)
-1. Create and build this Docker.
+1. Install Docker by following [these](https://docs.docker.com/engine/install/ubuntu/) steps.
+2. Create and build this Docker.
     ``` bash
     # on main machine
     $ cd ~/
     $ git clone https://github.com/ShaunAlt-Unitree-Go1/Unitree-Go1-Sim.git
     $ ./Unitree-Go1-Sim/docker/build_docker.bash
     ```
-2. Create and build the ROS Bridge Docker.
+3. Create and build the ROS Bridge Docker.
     ``` bash
     # on main machine
     $ cd ~/
     $ git clone https://github.com/ShaunAlt-Unitree-Go1/ROS-Bridge-Docker.git
     $ ./ROS-Bridge-Docker/build_docker.bash
     ```
-3. Install ROS2, SLAM, and Nav2 (using Humble in this example):
+4. Install ROS2, Gazebo, SLAM, and Nav2 (using Humble in this example):
     ``` bash
     # on main machine
     $ cd ~/
     # follow steps from https://docs.ros.org/en/humble/Installation.html to install ros
-    $ sudo apt install ros2-humble-navigation2 ros2-humble-nav2-bringup
+    $ sudo apt install \
+        ros-humble-ros-gz \ # gazebo
+        ros-humble-navigation2 ros-humble-nav2-bringup \ # nav2
+        ros-humble-slam-toolbox # slam
     ```
-4. Run the ROS1 and ROS2 Nodes (open a new terminal for each of the following steps):
+5. Run the ROS1 and ROS2 Nodes (open a new terminal for each of the following steps):
     1. Run the Go1 Simulation.
         ``` bash
         # on main machine
