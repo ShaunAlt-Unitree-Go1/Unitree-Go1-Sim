@@ -6,7 +6,8 @@ Unitree Go1 Robot Full Simulation with LiDAR and Camera Support
 - [Supports](#supports)
 - [Usage](#usage)
     - [Docker Usage](#docker-usage)
-    - [Working with ROS2 Navigation (Single Robot)](#working-with-ros2-navigation-single-robot)
+    - [Working with ROS2 Navigation (Single Robot without Namespace)](#working-with-ros2-navigation-single-robot-without-namespace)
+    - [Working with ROS2 Navigation (Single Robot with Namespace)](#working-with-ros2-navigation-single-robot-with-namespace)
     - [Working with ROS2 Navigation (Multiple Robots)](#working-with-ros2-navigation-multiple-robots)
 
 ## Contributors
@@ -37,7 +38,7 @@ ROS Noetic on Ubuntu 20.04.
     $ ./docker/run_docker.bash -t
     ```
 
-### Working with ROS2 Navigation (Single Robot)
+### Working with ROS2 Navigation (Single Robot without Namespace)
 1. Create and build this Docker.
     ``` bash
     # on main machine
@@ -125,6 +126,10 @@ ROS Noetic on Ubuntu 20.04.
         $ ros2 run tf2_tools view_frames
         # this will generate a .pdf document in the `~/` directory
         ```
+
+### Working with ROS2 Navigation (Single Robot with Namespace)
+> [!NOTE]
+> Currently working on getting this operational.
 
 ### Working with ROS2 Navigation (Multiple Robots)
 > [!NOTE]
