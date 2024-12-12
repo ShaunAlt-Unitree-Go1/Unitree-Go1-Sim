@@ -1,0 +1,19 @@
+<launch>
+    <!-- Arguments -->
+    <arg name="gazebo_world" default="$(find go1_simulation)/worlds/willow_garage.world" />
+    <arg name="robot_name" default="r1" />
+
+    <!-- Parameters -->
+    <param name="use_sim_time" value="true" />
+
+    <!-- Gazebo Simulation -->
+    <include file="$(find go1_simulation)/launch/go1_simulation.launch">
+        <arg name="gazebo_world" value="$(arg gazebo_world)" />
+        <arg name="robot_name" value="$(arg robot_name)" />
+    </include>
+
+    <!-- SLAM Node -->
+    <include file="$(find go1_simulation)/launch/slam.launch">
+        <arg name="robot_name" value="$(arg robot_name)" />
+    </include>
+</launch>
