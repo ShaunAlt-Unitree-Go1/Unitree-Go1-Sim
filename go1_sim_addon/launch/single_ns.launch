@@ -1,6 +1,6 @@
 <launch>
     <!-- Arguments -->
-    <arg name="gazebo_world" default="$(find go1_simulation)/worlds/willow_garage.world" />
+    <arg name="gazebo_world" default="$(find go1_sim_add)/worlds/test-2.world" />
     <arg name="robot_name" default="r1" />
 
     <!-- Parameters -->
