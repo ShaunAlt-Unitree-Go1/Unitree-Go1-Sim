@@ -189,3 +189,19 @@ ROS Jazzy on Ubuntu 24.04.
 ### Working with ROS2 Navigation (Multiple Robots)
 > [!NOTE]
 > Currently working on getting this operational.
+
+- go1_simulation/launch/go1_simulation.launch
+    - go1_simulation/launch/bringup.launch
+        - go1_description/launch/description.launch
+            - robot_state_publisher/robot_state_publisher
+        - go1_simulation/launch/velocity_smoother.launch
+            - yocs_velocity_smoother/launch/velocity_smoother.launch
+                - nodelet/nodelet
+        - champ_base/quadruped_controller_node
+        - champ_base/state_estimation_node
+        - robot_localization/base_to_footprint_ekf
+    - go1_simulation/launch/gazebo.launch
+- go1_simulation/launch/spawn_robot.launch
+    - go1_config/launch/bringup.launch
+        - champ_bringup/launch/bringup.launch
+    - champ_gazebo/launch/spawn_robot.launch

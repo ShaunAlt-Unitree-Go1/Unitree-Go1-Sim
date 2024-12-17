@@ -14,7 +14,7 @@
     </include>
 
     <!-- Robot 2 Spawn -->
-    <include file="$(find go1_simulation)/launch/spawn_robot.launch">
+    <include file="$(find go1_sim_addon)/launch/spawn_robot.launch">
         <arg name="gazebo_world" value="$(arg gazebo_world)" />
         <arg name="robot_name" value="$(arg robot_name_2)" />
         <arg name="world_init_x" value="2.0" />
