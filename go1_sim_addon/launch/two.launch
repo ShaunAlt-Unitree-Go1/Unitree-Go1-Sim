@@ -1,0 +1,30 @@
+<launch>
+    <!-- Arguments -->
+    <arg name="gazebo_world" default="$(find go1_sim_addon)/worlds/test-2.world" />
+    <arg name="robot_name_1" default="r1" />
+    <arg name="robot_name_2" default="r2" />
+
+    <!-- Parameters -->
+    <param name="use_sim_time" value="true" />
+
+    <!-- Gazebo Simulation -->
+    <include file="$(find go1_simulation)/launch/go1_simulation.launch">
+        <arg name="gazebo_world" value="$(arg gazebo_world)" />
+        <arg name="robot_name" value="$(arg robot_name_1)" />
+    </include>
+
+    <!-- Robot 2 Spawn -->
+    <include file="$(find go1_simulation)/launch/spawn_robot.launch">
+        <arg name="gazebo_world" value="$(arg gazebo_world)" />
+        <arg name="robot_name" value="$(arg robot_name_2)" />
+        <arg name="world_init_x" value="2.0" />
+    </include>
+
+    <!-- SLAM Nodes -->
+    <include file="$(find go1_simulation)/launch/slam.launch">
+        <arg name="robot_name" value="$(arg robot_name_1)" />
+    </include>
+    <include file="$(find go1_simulation)/launch/slam.launch">
+        <arg name="robot_name" value="$(arg robot_name_2)" />
+    </include>
+</launch>
