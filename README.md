@@ -205,3 +205,13 @@ ROS Jazzy on Ubuntu 24.04.
     - go1_config/launch/bringup.launch
         - champ_bringup/launch/bringup.launch
     - champ_gazebo/launch/spawn_robot.launch
+
+## Getting Webots working
+1. Install Webots in VM:
+    ``` bash
+    $ sudo mkdir -p /etc/apt/keyrings
+    $ cd /etc/apt/keyrings
+    $ sudo wget -q https://cyberbotics.com/Cyberbotics.asc
+    $ echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/Cyberbotics.asc] https://cyberbotics.com/debian binary-amd64/" | sudo tee /etc/apt/sources.list.d/Cyberbotics.list
+    $ sudo apt update
+    $ sudo apt install webots
