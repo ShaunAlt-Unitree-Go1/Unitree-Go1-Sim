@@ -21,10 +21,10 @@
     </include>
 
     <!-- SLAM Nodes -->
-    <include file="$(find go1_simulation)/launch/slam.launch">
+    <!-- <include file="$(find go1_simulation)/launch/slam.launch">
         <arg name="robot_name" value="$(arg robot_name_1)" />
     </include>
     <include file="$(find go1_simulation)/launch/slam.launch">
         <arg name="robot_name" value="$(arg robot_name_2)" />
-    </include>
+    </include> -->
 </launch>
