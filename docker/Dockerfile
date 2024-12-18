@@ -95,8 +95,8 @@ RUN /bin/bash -c "source /opt/ros/noetic/setup.bash && catkin_make"
 # =============================================================================
 WORKDIR /home/rosuser/
 RUN git clone https://github.com/leonhartyao/gazebo_models_worlds_collection.git
-RUN bash -c 'echo "export GAZEBO_MODEL_PATH=$(GAZEBO_MODEL_PATH):/home/rosuser/gazebo_models_worlds_collection/models" >> /home/rosuser/.bashrc'
-RUN bash -c 'echo "export GAZEBO_RESOURCE_PATH=$(GAZEBO_RESOURCE_PATH):/home/rosuser/gazebo_models_worlds_collection/worlds" >> /home/rosuser/.bashrc'
+RUN bash -c 'echo "export GAZEBO_MODEL_PATH=$GAZEBO_MODEL_PATH:/home/rosuser/gazebo_models_worlds_collection/models" >> /home/rosuser/.bashrc'
+RUN bash -c 'echo "export GAZEBO_RESOURCE_PATH=$GAZEBO_RESOURCE_PATH:/home/rosuser/gazebo_models_worlds_collection/worlds" >> /home/rosuser/.bashrc'
 
 
 # =============================================================================
