@@ -77,9 +77,9 @@ RUN git clone \
 # customize the `slam.launch` file - this way the lidar mapper is created, but
 #  none of the other slam gmapping or move_group stuff is created
 RUN rm -rf /home/rosuser/sim_ws/src/Unitree-Go1-Sim/submodules/Taucrates/simulation_unitree_go1/go1_simulation/launch/slam.launch
-RUN rm -rf /home/rosuser/sim_ws/src/Unitree-Go1-Sim/submodules/Taucratse/simulation_unitree_go1/go1_description/xacro/go1.urdf.xacro
+RUN rm -rf /home/rosuser/sim_ws/src/Unitree-Go1-Sim/submodules/Taucrates/simulation_unitree_go1/go1_description/xacro/go1.urdf.xacro
 COPY custom/slam.launch /home/rosuser/sim_ws/src/Unitree-Go1-Sim/submodules/Taucrates/simulation_unitree_go1/go1_simulation/launch/
-COPY custom/go1.urdf.xacro /home/rosuser/sim_ws/src/Unitree-Go1-Sim/submodules/Taucratse/simulation_unitree_go1/go1_description/xacro/go1.urdf.xacro
+COPY custom/go1.urdf.xacro /home/rosuser/sim_ws/src/Unitree-Go1-Sim/submodules/Taucrates/simulation_unitree_go1/go1_description/xacro/go1.urdf.xacro
 
 WORKDIR /home/rosuser/sim_ws
 RUN rosdep install \
