@@ -14,7 +14,7 @@
     </include>
 
 
-    <group ns="$(arg robot_name)">
+    <group ns="$(arg robot_name_1)">
         <node pkg="laser_scan_matcher" type="laser_scan_matcher_node" 
             name="laser_scan_matcher_node" output="screen">
 
