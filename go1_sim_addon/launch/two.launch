@@ -26,8 +26,8 @@
             <remap from="vel" to="cmd_vel" />
 
             <!-- Coordinate frames -->
-            <param name="fixed_frame" value="odom" />
-            <param name="base_frame" value="base_footprint" />
+            <param name="fixed_frame" value="$(arg robot_name_1)/odom" />
+            <param name="base_frame" value="$(arg robot_name_1)/base_footprint" />
 
             <!-- Motion prediction -->
             <param name="use_imu" value="false"/>
